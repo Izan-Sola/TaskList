@@ -9,7 +9,7 @@ function addTask() {
             break
         }
     }
-    //Add the task
+    //Add the task with the date in which it was added
     taskText = document.getElementById("new-task");
 
     if (taskText.value.length <= 40) {
@@ -33,6 +33,7 @@ function removeTask() {
     listElement = document.getElementsByTagName("li");
     checkboxes = document.getElementsByClassName("checkbox");
 
+    //Check for all checked checkboxes and remove the corresponding elements
     for (i = checkboxes.length - 1; i >= 0; i--) {
         checkBoxCheck = checkboxes.item(i);
         //console.log(checkBoxCheck);
@@ -48,6 +49,7 @@ function removeTask() {
 }
 
 function loadTasks() {
+    //Load the data saved in the local storage
     taskList = document.getElementById("task-list");
     taskList.innerHTML = localStorage.getItem("tasks");
 
@@ -65,6 +67,7 @@ function loadTasks() {
 }
 
 function addSubTaskBox() {
+    //Show the textbox for adding subtasks
     buttonId = document.activeElement.id.split("-")[1]
 
     document.getElementById("content").innerHTML += "<div id=stbtts class=subtask-buttons><input onkeypress=onKeyPress() type=text placeholder='Write your sub task here' class=new-subtask id=newsb> <input onclick=addSubTask() class=add-newsubtask type=button value='Add subtask'></div>"
@@ -78,17 +81,17 @@ function addSubTask() {
         //alert("You need to type something in the textbox to add a subtask");
     } else if (subTaskText != "") {
 
+        //Add the subtask with a hidden line over it (visibile when marking it as completed), and remove the textbox for subtasks
         document.getElementById("sb" + buttonId).innerHTML += "<div class=subtasks>" + subTaskText.value + "<hr style='visibility: hidden; opacitiy: 0' class=line-over> </div>";
-        // document.getElementById("sb" + buttonId).style.visibility = "visible";
         localStorage.setItem("subtasks" + buttonId, document.getElementById("sb" + buttonId).innerHTML);
         document.getElementById("stbtts").remove();
 
         subTaskList = document.getElementById("sb" + taskId);
-        console.log(subTaskList)
 
+        //When adding a substask all other subtasks become visible
         subTaskList.style.visibility = "visible";
         subTaskList.style.position = "static";
-
+ 
         for (i = subTaskList.getElementsByClassName("line-over").length - 1; i >= 0; i--) {
             subTaskList.getElementsByClassName("line-over")[i].style.opacity = "1";
         }
@@ -98,10 +101,11 @@ function addSubTask() {
 function onKeyPress() {
     handleEvent = true;
     taskText = document.getElementById("new-task");
+
+    //Character limit, with visual indicator
     if (taskText.value.length >= 40) {
         taskText.style.background = "rgba(255, 23, 7, 0.89)";
-        taskText.style.color = "white";
-        //alert("You cannot exceed 53 characters.")
+        taskText.style.color = "white";        
     } else {
         taskText.style.background = "white";
         taskText.style.color = "rgb(112, 32, 8)";
@@ -109,13 +113,15 @@ function onKeyPress() {
 
     document.addEventListener("keydown",
         function(keyDown) {
-
+            //Change the style of the textbox back to normal when removing enough characters
             if (keyDown.code == "Backspace") {
                 if (taskText.value.length <= 40) {
                     taskText.style.background = "white";
                     taskText.style.color = "rgb(112, 32, 8)";
                 }
                 removeTask();
+            //In case you dont use the buttons but the key Enter to add tasks or subtasks,
+            //get the textbox you are focusing to know if it has to add a task or a subtask.
             } else if (handleEvent == true && keyDown.code == "Enter" && document.activeElement.id == "new-task") {
                 handleEvent = false;
                 addTask();
