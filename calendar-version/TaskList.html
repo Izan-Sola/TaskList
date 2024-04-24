@@ -1,0 +1,61 @@
+<!DOCTYPE html>  
+<html lang="es">
+
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="script.js"></script>
+  <!-- Core Stylesheet -->
+<link rel="stylesheet" href="vanilla-calendar.min.css" />
+<!-- Themes -->
+<link rel="stylesheet" href="themes/dark.min.css" />
+<!-- JavaScript -->
+<script src="vanilla-calendar.min.js">
+
+document.addEventListener('DOMContentLoaded', () => {
+        const calendar = new VanillaCalendar('#calendar');
+        calendar.init();
+      });
+calendar.init();
+</script>
+  <title>Lista de tareas</title>
+
+</head>
+
+
+<body onload="loadTasks()">
+  
+  <div class="content" id="content">
+    
+  <div class="title">
+    <h1>My task list</h1> 
+    </div>
+
+    <input onkeypress="onKeyPress()" class="text-input" type="text" id="new-task" placeholder="Write your task here">
+ 
+  <div class="buttons">
+    <input class="button button1" id="add" type="button" onclick="addTask()" value="Add a new task"></input>
+    <input class="button button2" id="remove" type="button" onclick="removeTask()" value="Remove all selected tasks"></input>
+  </div>
+<div class="list-container">
+  <ul id="task-list" >
+  
+  </ul>
+
+</div>
+
+<div class="vanilla-calendar">
+    <div id="calendar" data-calendar-theme="dark" class="vanilla-calendar vanilla-calendar_default"><div class="vanilla-calendar-header"><button type="button" class="vanilla-calendar-arrow vanilla-calendar-arrow_prev" data-calendar-arrow="prev"></button><div class="vanilla-calendar-header__content"><button type="button" class="vanilla-calendar-month" data-calendar-selected-month="4" tabindex="0">May</button><button type="button" class="vanilla-calendar-year" data-calendar-selected-year="2024" tabindex="0">2024</button></div><button type="button" class="vanilla-calendar-arrow vanilla-calendar-arrow_next" data-calendar-arrow="next"></button></div><div class="vanilla-calendar-wrapper"><div class="vanilla-calendar-content"><div class="vanilla-calendar-week"><b class="vanilla-calendar-week__day">Mon</b><b class="vanilla-calendar-week__day">Tue</b><b class="vanilla-calendar-week__day">Wed</b><b class="vanilla-calendar-week__day">Thu</b><b class="vanilla-calendar-week__day">Fri</b><b class="vanilla-calendar-week__day vanilla-calendar-week__day_weekend">Sat</b><b class="vanilla-calendar-week__day vanilla-calendar-week__day_weekend">Sun</b></div><div class="vanilla-calendar-days vanilla-calendar-days_selecting"><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn vanilla-calendar-day__btn_prev" type="button" data-calendar-day="2024-04-29">29</button></div><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn vanilla-calendar-day__btn_prev" type="button" data-calendar-day="2024-04-30">30</button></div><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn" type="button" data-calendar-day="2024-05-01">1</button></div><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn" type="button" data-calendar-day="2024-05-02">2</button></div><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn vanilla-calendar-day__btn_selected" type="button" data-calendar-day="2024-05-03">3</button></div><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn vanilla-calendar-day__btn_weekend" type="button" data-calendar-day="2024-05-04">4</button></div><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn vanilla-calendar-day__btn_weekend" type="button" data-calendar-day="2024-05-05">5</button></div><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn" type="button" data-calendar-day="2024-05-06">6</button></div><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn" type="button" data-calendar-day="2024-05-07">7</button></div><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn" type="button" data-calendar-day="2024-05-08">8</button></div><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn" type="button" data-calendar-day="2024-05-09">9</button></div><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn" type="button" data-calendar-day="2024-05-10">10</button></div><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn vanilla-calendar-day__btn_weekend" type="button" data-calendar-day="2024-05-11">11</button></div><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn vanilla-calendar-day__btn_weekend" type="button" data-calendar-day="2024-05-12">12</button></div><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn" type="button" data-calendar-day="2024-05-13">13</button></div><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn" type="button" data-calendar-day="2024-05-14">14</button></div><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn" type="button" data-calendar-day="2024-05-15">15</button></div><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn" type="button" data-calendar-day="2024-05-16">16</button></div><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn" type="button" data-calendar-day="2024-05-17">17</button></div><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn vanilla-calendar-day__btn_weekend" type="button" data-calendar-day="2024-05-18">18</button></div><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn vanilla-calendar-day__btn_weekend" type="button" data-calendar-day="2024-05-19">19</button></div><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn" type="button" data-calendar-day="2024-05-20">20</button></div><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn" type="button" data-calendar-day="2024-05-21">21</button></div><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn" type="button" data-calendar-day="2024-05-22">22</button></div><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn" type="button" data-calendar-day="2024-05-23">23</button></div><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn" type="button" data-calendar-day="2024-05-24">24</button></div><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn vanilla-calendar-day__btn_weekend" type="button" data-calendar-day="2024-05-25">25</button></div><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn vanilla-calendar-day__btn_weekend" type="button" data-calendar-day="2024-05-26">26</button></div><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn" type="button" data-calendar-day="2024-05-27">27</button></div><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn" type="button" data-calendar-day="2024-05-28">28</button></div><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn" type="button" data-calendar-day="2024-05-29">29</button></div><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn" type="button" data-calendar-day="2024-05-30">30</button></div><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn" type="button" data-calendar-day="2024-05-31">31</button></div><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn vanilla-calendar-day__btn_next vanilla-calendar-day__btn_weekend" type="button" data-calendar-day="2024-06-01">1</button></div><div class="vanilla-calendar-day"><button class="vanilla-calendar-day__btn vanilla-calendar-day__btn_next vanilla-calendar-day__btn_weekend" type="button" data-calendar-day="2024-06-02">2</button></div></div></div></div></div>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const calendar = new VanillaCalendar('#calendar');
+        calendar.init();
+      });
+    </script>
+</div>
+    
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+{
+  "name": "tasklist",
+  "productName": "TaskListApp",
+  "author": "ShinyShadow_ (Izan Sola)",
+  "version": "1.0.0",
+  "description": "A task list made to practice and learn JavaScript and jQuery",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron main.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package": "electron-builder"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^30.0.1",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.DesktopAppSS.TaskListApp",
+            "win": {
+            "target": ["portable"]
+        },
+        "portable": {
+            "artifactName": "pvmplayer_portable.exe"
+  }
+
+  }
+}
