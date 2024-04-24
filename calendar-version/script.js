@@ -16,10 +16,7 @@ function addTask() {
         taskDate = new Date();
         month = taskDate.getMonth() + 1;
         fullTaskDate = "" + taskDate.getDate() + "/" + month + "/" + taskDate.getFullYear() + " - " + taskDate.getHours() + ":" + taskDate.getMinutes();
-
-        if (taskText.value == "") {
-          // alert("You need to type something in the textbox to add a task");
-        } else if (taskText != "") {
+        } else if (taskText != "" && taskText.value.length <= 40) {
             document.getElementById("task-list").innerHTML += "<li class=list-element id=li" + taskId + "><div class=libg></div>" + taskText.value + "\
                                                                          <input type=checkbox class=checkbox id=" + taskId + "> <span class=check></span>\
                                                                          <input type=button class=sub-task onclick=addSubTaskBox(" + taskId + ") value='+' id=sub-" + taskId + ">\
