@@ -139,8 +139,9 @@ function showHideSubTasks(taskId) {
     if (subTaskList.style.visibility != "hidden") {
         subTaskList.style.visibility = "hidden";
         subTaskList.style.position = "absolute";
+        
 //Well, reading the code I noticed this for loops are completely unnecesary,
-//I can just use jQuery instead. Will replace the for loops with this:
+//I can just use jQuery instead. Will replace the for loops tomorrow with this:
 //$('#'+'subtaskList').children().css('opacity', '0')
 //$('#'+'subtaskList').children().css('opacity', '1)
         
@@ -158,15 +159,18 @@ function showHideSubTasks(taskId) {
 }
 
 $(document).ready(function() {
-
+    //Gets when you click on a subtask, and marks it or unmarks it
     $('div').on('mousedown', '.subtasks', function(event) {
         event.stopPropagation(); // Prevent event from bubbling up
+
+        //Get the number of the id of the parent of the subtask (which is the subtask list element),
+        //which is 'sb' + a number (sb1, sb2...)
         subTaskListID = $(this).parent()[0].id.split('sb')[1]
+        
         if ($(this).css('textDecoration').split(" ")[0] == "none") {
             $(this).css('textDecoration', 'line-through');
             $(this).css('background', 'rgba(255, 0, 0, 0.15)')
             $(this).children().css('visibility', 'visible')
-            //The parent of the div is an element with id: 'sb' and a number
             localStorage.setItem("subtasks" + subTaskListID, document.getElementById("sb" + subTaskListID).innerHTML);
         } else {
             $(this).css('textDecoration', 'none')
