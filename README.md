@@ -3,9 +3,8 @@ Sooo i studied a middle grade on microinformatic systems and network and rn im d
 Friday 10 April:
 ------------------
 Task.....
-------------------
-SubTask
-SubTask
+  - SubTask
+  - SubTask
 ------------------
 Also instead of a fixated list of tasks like it is rn, each task will we a draggable element.
 
