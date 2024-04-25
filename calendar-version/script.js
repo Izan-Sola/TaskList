@@ -110,23 +110,24 @@ function onKeyPress() {
         taskText.style.color = "rgb(112, 32, 8)";
     }
 
-    document.addEventListener("keydown",
-        function(keyDown) {
-
-            if (keyDown.code == "Backspace") {
-                if (taskText.value.length <= 40) {
-                    taskText.style.background = "white";
-                    taskText.style.color = "rgb(112, 32, 8)";
-                }
-                removeTask();
-            } else if (handleEvent == true && keyDown.code == "Enter" && document.activeElement.id == "new-task") {
+    document.addEventListener("keydown", function(keyDown) {
+        if (keyDown.code == "Backspace") {
+            if (taskText.value.length <= 40) {
+                taskText.style.background = "white";
+                taskText.style.color = "rgb(112, 32, 8)";
+            }
+            removeTask();
+        } else if (handleEvent && (keyDown.code == "Enter")) {
+            if (document.activeElement.id == "new-task") {
                 handleEvent = false;
                 addTask();
-            } else if (handleEvent == true && keyDown.code == "Enter" && document.activeElement.className == "new-subtask") {
+            } else if (document.activeElement.className == "new-subtask") {
                 handleEvent = false;
                 addSubTask(taskId);
             }
-        })
+        }
+    });
+    
 }
 
 function showHideSubTasks(taskId) {
