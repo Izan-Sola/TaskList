@@ -139,22 +139,11 @@ function showHideSubTasks(taskId) {
     if (subTaskList.style.visibility != "hidden") {
         subTaskList.style.visibility = "hidden";
         subTaskList.style.position = "absolute";
-        
-//Well, reading the code I noticed this for loops are completely unnecesary,
-//I can just use jQuery instead. Will replace the for loops tomorrow with this:
-//$('#'+'subtaskList').children().css('opacity', '0')
-//$('#'+'subtaskList').children().css('opacity', '1)
-        
-        for (i = subTaskList.getElementsByClassName("line-over").length - 1; i >= 0; i--) {
-            subTaskList.getElementsByClassName("line-over")[i].style.opacity = "0";
-        }
+        $('#'+'subtaskList').children().css('opacity', '0')
     } else {
         subTaskList.style.visibility = "visible";
         subTaskList.style.position = "static";
-
-        for (i = subTaskList.getElementsByClassName("line-over").length - 1; i >= 0; i--) {
-            subTaskList.getElementsByClassName("line-over")[i].style.opacity = "1";
-        }
+        $('#'+'subtaskList').children().css('opacity', '1)
     }
 }
 
