@@ -99,7 +99,7 @@ function addSubTask() {
 }
 
 function onKeyPress() {
-    handleEvent = true;
+   
     taskText = document.getElementById("new-task");
 
     //Character limit, with visual indicator
@@ -110,9 +110,10 @@ function onKeyPress() {
         taskText.style.background = "white";
         taskText.style.color = "rgb(112, 32, 8)";
     }
-
+}
     document.addEventListener("keydown",
         function(keyDown) {
+             handleEvent = true;
             //Change the style of the textbox back to normal when removing enough characters
             if (keyDown.code == "Backspace") {
                 if (taskText.value.length <= 40) {
@@ -120,17 +121,17 @@ function onKeyPress() {
                     taskText.style.color = "rgb(112, 32, 8)";
                 }
                 removeTask();
-            //In case you dont use the buttons but the key Enter to add tasks or subtasks,
-            //get the textbox you are focusing to know if it has to add a task or a subtask.
-            } else if (handleEvent == true && keyDown.code == "Enter" && document.activeElement.id == "new-task") {
-                handleEvent = false;
-                addTask();
-            } else if (handleEvent == true && keyDown.code == "Enter" && document.activeElement.className == "new-subtask") {
-                handleEvent = false;
-                addSubTask(taskId);
+            } 
+            else if(handleEvent == true && keyDown.code == "Enter") {
+                 if (document.activeElement.id == "new-task") {
+                        handleEvent = false;
+                        addTask();
+                } 
+                 else if (document.activeElement.className == "new-subtask") {
+                            handleEvent = false;
+                            addSubTask(taskId);
             }
         })
-}
 
 function showHideSubTasks(taskId) {
 
