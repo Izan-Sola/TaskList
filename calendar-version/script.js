@@ -52,20 +52,19 @@ function removeTask() {
 }
 
 function loadTasks() {
+
+    //Load the tasks
     taskList = document.getElementById("task-list");
     taskList.innerHTML = localStorage.getItem("tasks");
-
+    
     listElement = document.getElementsByTagName("li");
 
-
+    //Load the subtasks and hide the lines
     for (i = listElement.length - 1; i >= 0; i--) {
         subTasks = document.getElementById("sb" + i);
-        subTasks.innerHTML = localStorage.getItem("subtasks" + i);
+        subTasks.innerHTML = localStorage.getItem("subtasks" + i); 
     }
-
-    for (i = document.getElementsByClassName("line-over").length - 1; i >= 0; i--) {
-        document.getElementsByClassName("line-over")[i].style.opacity = "0";
-    }
+    $('.line-over').css('opacity', '0')
 }
 
 function addSubTaskBox() {
@@ -81,7 +80,7 @@ function addSubTask() {
     if (subTaskText.value == "") {
         //alert("You need to type something in the textbox to add a subtask");
     } else if (subTaskText != "") {
-
+    
         document.getElementById("sb" + buttonId).innerHTML += "<div class=subtasks>" + subTaskText.value + "<hr style='visibility: hidden; opacitiy: 0' class=line-over> </div>";
         // document.getElementById("sb" + buttonId).style.visibility = "visible";
         localStorage.setItem("subtasks" + buttonId, document.getElementById("sb" + buttonId).innerHTML);
