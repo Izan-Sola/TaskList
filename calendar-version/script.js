@@ -144,7 +144,7 @@ function showHideSubTasks(taskId) {
     } else {
         subTaskList.style.visibility = "visible";
         subTaskList.style.position = "static";
-        $('#'+'subtaskList').children().css('opacity', '1)
+        $('#'+'subtaskList').children().css('opacity', '1')
     }
 }
 
