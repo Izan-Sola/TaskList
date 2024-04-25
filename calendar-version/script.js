@@ -98,10 +98,8 @@ function addSubTask() {
     }
 }
 
-function onKeyPress() {
-   
+function onKeyPress() {  
     taskText = document.getElementById("new-task");
-
     //Character limit, with visual indicator
     if (taskText.value.length >= 40) {
         taskText.style.background = "rgba(255, 23, 7, 0.89)";
@@ -111,8 +109,10 @@ function onKeyPress() {
         taskText.style.color = "rgb(112, 32, 8)";
     }
 }
-    document.addEventListener("keydown",
+
+document.addEventListener("keydown",
         function(keyDown) {
+            taskText = document.getElementById("new-task");
              handleEvent = true;
             //Change the style of the textbox back to normal when removing enough characters
             if (keyDown.code == "Backspace") {
