@@ -24,7 +24,7 @@ function addTask() {
                                                                          <div class=task-date>" + fullTaskDate + "</div> <ul style='visibility: hidden; position: absolute' class=subtask-list id=sb" + taskId + "></ul></li>";
             localStorage.setItem("tasks", taskList.innerHTML);
         }
-    }
+    
     taskTextBox = document.getElementById("new-task");
     taskTextBox.value = "";
 }
@@ -82,7 +82,7 @@ function addSubTask() {
     } else if (subTaskText != "") {
 
         //Add the subtask with a hidden line over it (visibile when marking it as completed), and remove the textbox for subtasks
-        document.getElementById("sb" + buttonId).innerHTML += "<div class=subtasks>" + subTaskText.value + "<hr style='visibility: hidden; opacitiy: 0' class=line-over> </div>";
+        document.getElementById("sb" + buttonId).innerHTML += "<div class=subtasks>" + subTaskText.value + "<hr style='visibility: hidden; opacity: 0' class=line-over> </div>";
         localStorage.setItem("subtasks" + buttonId, document.getElementById("sb" + buttonId).innerHTML);
         document.getElementById("stbtts").remove();
 
