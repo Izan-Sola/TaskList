@@ -140,11 +140,11 @@ function showHideSubTasks(taskId) {
     if (subTaskList.style.visibility != "hidden") {
         subTaskList.style.visibility = "hidden";
         subTaskList.style.position = "absolute";
-        $('#'+subtaskList.id).children().css('opacity', '0')
+        $('#'+subTaskList.id).children().css('opacity', '0')
     } else {
         subTaskList.style.visibility = "visible";
         subTaskList.style.position = "static";
-        $('#'+subtaskList.id).children().css('opacity', '1')
+        $('#'+subTaskList.id).children().css('opacity', '1')
     }
 }
 
