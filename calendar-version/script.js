@@ -86,15 +86,13 @@ function addSubTask() {
         localStorage.setItem("subtasks" + buttonId, document.getElementById("sb" + buttonId).innerHTML);
         document.getElementById("stbtts").remove();
 
-        subTaskList = document.getElementById("sb" + taskId);
+        subTaskList = document.getElementById("sb" + buttonId);
         console.log(subTaskList)
 
         subTaskList.style.visibility = "visible";
         subTaskList.style.position = "static";
 
-        for (i = subTaskList.getElementsByClassName("line-over").length - 1; i >= 0; i--) {
-            subTaskList.getElementsByClassName("line-over")[i].style.opacity = "1";
-        }
+        $('#sb'+buttonId+' .line-over').css('opacity', '1')
     }
 }
 
