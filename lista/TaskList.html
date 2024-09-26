@@ -1,0 +1,65 @@
+<!DOCTYPE html>  
+<html lang="es">
+
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <title>Lista de tareas</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="./script.js"></script>
+</head>
+
+
+<body onload="loadTasks()">
+  
+  <div class="content" id="content">
+    
+  <div class="title">
+    <h1>My task list</h1> 
+    </div>
+
+    <input onkeypress="onKeyPress()" class="text-input" type="text" id="new-task" placeholder="Write your task here">
+ 
+  <div class="buttons">
+    <input class="button button1" id="add" type="button" onclick="addTask()" value="Add a new task"></input>
+    <input class="button button2" id="remove" type="button" onclick="removeTask()" value="Remove all selected tasks"></input>
+  </div>
+<div class="list-container">
+  <ul id="task-list" >
+  
+  </ul>
+</div>
+
+</div>
+
+<div class="notes" id="notes">
+
+  <h1 class="notesh1">Write your notes here!</h1>
+
+  <input class="saveNote notebuttons" type="button" value="Save">
+  <input class="removeNote notebuttons" type="button" value="Remove" >
+ 
+  <div class="noteContent" id="noteContent"> 
+
+    <div id="display"> 
+  <textarea placeholder="Write your not here" id="textarea" spellcheck="false" class="noteText"></textarea>
+
+  
+</div>
+
+ </div>
+
+ <div class="swapNotes">
+
+  <input class="backward swapbuttons" type=button value="<< Last note">
+  <input class="forward swapbuttons" type="button" value="Next note >>">
+  <input class="swapbuttons" type="button" value="New note">
+  <input class="swapbuttons" type="button" value="Show all notes">
+
+ </div>
+
+</div>
+
+
+</body>
+
+</html>
