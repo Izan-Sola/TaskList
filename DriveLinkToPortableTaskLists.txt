@@ -1,5 +1,4 @@
-With Electron I made the TaskList an app:
+
 
 https://drive.google.com/drive/folders/12GMSnI9eOvU0b4DsZjZLlALsuvuthDik?usp=sharing
 
-There's the version without the calendar and the version with it, which isn't finished.
